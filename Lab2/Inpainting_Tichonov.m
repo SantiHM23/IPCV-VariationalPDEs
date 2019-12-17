@@ -1,0 +1,11 @@
+function uk=Inpainting_Tichonov(f,M,tao,K,lambda)
+for k=1:K
+    if k==1
+        uk=f;
+    else
+        Igradx = gradx(uk);
+        Igrady = grady(uk);
+        graduk = sqrt(Igradx.^2 + Igrady.^2);
+        uk=uk+tao*(lambda*(f-uk).*M+graduk);
+    end
+end
