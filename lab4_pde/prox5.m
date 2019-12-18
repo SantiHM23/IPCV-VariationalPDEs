@@ -1,6 +1,6 @@
-function F = prox5(x, h, z)
+function F = prox5(x, h, z, it)
     tau = 0.1;
-    for i = 1:100
+    for i = 1:it
         term = div(z(:,:,1), z(:,:,2))+(x/h);
 
         GradXH = -2*gradx(term);

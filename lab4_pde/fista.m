@@ -1,9 +1,9 @@
-function F = fista(u, h, z)
+function F = fista(u, h, z, it)
     y1 = u;
     y2 = u;
     tau = 0.1;
     t1 = 1;
-    for i = 1:100
+    for i = 1:it
         term = div(y1, y2)+(u/h);
 
         GradXH = -2*gradx(term);
